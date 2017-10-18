@@ -51,6 +51,9 @@ function transformData() {
 
 	//Questão 1
 	switch (questions.health) {
+		case 0:
+		score.first = 0;
+		break;
 		case 1:
 		score.first = 5;
 		break;
@@ -99,6 +102,9 @@ function transformData() {
 
 	 //Questão 6
 	 switch (questions.family) {
+	 	case 0:
+		score.sixth = 0;
+		break;
 	 	case 1:
 	 	score.sixth = 5;
 	 	break;
@@ -113,11 +119,13 @@ function transformData() {
 	 	break;
 	 	case 5:
 	 	score.sixth = 1;
-	 	break;
 	 }
 
 	//Questão 7
 	switch (questions.pain) {
+		case 0:
+		score.seventh = 0;
+		break;
 		case 1:
 		score.seventh = 6;
 		break;
@@ -142,6 +150,9 @@ function transformData() {
 		score.eigth = 6;
 	} else if (questions.pain >= 2) {
 		switch (questions.work) {
+			case 0:
+			score.eigth = 0;
+			break;
 			case 1:
 			score.eigth = 5;
 			break;
@@ -188,6 +199,9 @@ function transformData() {
 
 	for (var i = 0; i < ninth_questions_one.length; i++) {
 		switch (ninth_questions_one[i]) {
+			case 0:
+			ninth_score_one[i] = 0;
+			break;
 			case 1:
 			ninth_score_one[i] = 6;
 			break;
@@ -230,6 +244,9 @@ function transformData() {
 	let eleventh_partial_score_one, eleventh_partial_score_two;
 
 	switch (questions.e_b) {
+		case 0:
+		eleventh_partial_score_one = 0;
+		break;
 		case 1:
 		eleventh_partial_score_one = 5;
 		break;
@@ -247,6 +264,9 @@ function transformData() {
 	}
 
 	switch (questions.e_d) {
+		case 0:
+		eleventh_partial_score_two = 0;
+		break;
 		case 1:
 		eleventh_partial_score_two = 5;
 		break;
@@ -280,11 +300,15 @@ function transformData() {
 function rawScale () {
 	Object.getOwnPropertyNames(domain).forEach(function(name) {
 		domain[name].result = ((domain[name].point - domain[name].min)*100/domain[name].var);
-		document.getElementById(name).innerHTML = domain[name].result;
+		if (domain[name].result >= 0) {
+			document.getElementById(name).innerHTML = domain[name].result;
+		} else {
+			document.getElementById(name).innerHTML = "Faltam dados para um resultado eficiente."
+		}
 	});
 }
 
-function all () {
+function doIt () {
 	getAllValues();
 	transformData();
 	rawScale();
