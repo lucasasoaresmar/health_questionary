@@ -308,8 +308,13 @@ function rawScale () {
 	});
 }
 
-function doIt () {
+function doIt() {
 	getAllValues();
 	transformData();
 	rawScale();
+	document.getElementsByClassName("result")[0].style.display = "flex";
+}
+
+function back() {
+	document.getElementsByClassName("result")[0].style.display = "none";
 }

@@ -1,0 +1,42 @@
+body {
+	margin: 0;
+	font-family: Lora;
+	padding: 20px;
+}
+
+.result {
+	display: none;
+	height: 90%;
+	width: 90%;
+	position: fixed;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	background-color: lightblue;
+	overflow: auto;
+	left: 5%;
+	top: 5%;
+	padding: 5px;
+}
+
+.full {
+	width: 100%;
+}
+
+.btn-close {
+	float: right;
+}
+
+.result-domain {
+	width: 100%;
+	padding: 0 15%;
+}
+
+.btn-function {
+	margin: 0 30px;
+}
+
+.btn-close {
+	margin: 0;
+	background: red;
+}
